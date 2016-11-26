@@ -55,18 +55,18 @@ public class DBHelper extends SQLiteOpenHelper {
         db = getWritableDatabase();
     }
 
-    public long addSession(String name, Date date)
+    public long addTask(String name, String description)
     {
         ContentValues values = new ContentValues();
 
         values.put("Name", name);
-        values.put("StartDate", date.getTime());
+        values.put("Description", description);
 
         long rowId = db.insert(DB_TASK_TABLE, null, values);
         return rowId;
     }
 
-    public DBTask[] getSessions()
+    public DBTask[] getTasks()
     {
         ArrayList<DBTask> tasks = new ArrayList<DBTask>();
 
